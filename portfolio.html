@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135789.png">
+  <title>Gayane Yemishyan — Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- CHART.JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span id="theme-text">Light</span></button>
+
+<header class="hero-banner">
+  <div class="hero-content">
+
+    <img class="portrait" 
+      src="https://i.postimg.cc/XJgjtzJV/Gayane.png"
+      alt="Portrait of Gayane Yemishyan">
+
+    <h1 class="fullname">GAYANE YEMISHYAN</h1>
+    <p class="hero-sub">
+      Informatics & Mathematics Student
+    </p>
+
+    <div class="hero-links">
+      <a class="chip" href="mailto:gayaneyemishyan4@gmail.com">✉ Email</a>
+      <a class="chip" href="https://linkedin.com/in/gayane-yemishyan" target="_blank">LinkedIn</a>
+      <a class="chip" href="https://github.com/GayaneYemishyan" target="_blank">GitHub</a>
+      <span class="chip">📍 Yerevan, Armenia</span>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section id="about" class="section container">
+  <h2>About Me</h2>
+  <p>
+    I'm a passionate Informatics & Mathematics student at the French University in Armenia (UFAR). I specialize in Machine Learning, Data Analysis, Web Scraping, Computer Vision, and IoT systems. I work on practical, real-world projects — from real-time face recognition attendance systems to air-quality IoT devices and custom data scrapers for Armenian companies. I enjoy research-oriented projects, building intelligent systems, understanding complex patterns in data, and turning ideas into working solutions. I also love automation: scraping, cleaning, and analyzing data from real websites such as Vino&Vino wine store where I scraped complete wine details (names, prices, aging, origin, categories).
+  </p>
+</section>
+
+
+<section id="skills" class="section container">
+  <h2>Technical Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Programming Languages</h3>
+      <p>Python, C, C#, SQL, Bash</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Machine Learning</h3>
+      <p>PyTorch, scikit-learn, NumPy, Pandas, Matplotlib</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Computer Vision</h3>
+      <p>OpenCV, image preprocessing, real-time face detection</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>IoT & Embedded</h3>
+      <p>ESP32, Arduino, Sensor Networks, Serial Communication</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Web Scraping & Automation</h3>
+      <p>BeautifulSoup, Selenium, Requests, JSON APIs</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Tools</h3>
+      <p>Git, Linux, VS Code, Jupyter, GitHub</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="projects" class="section container">
+  <h2>Projects</h2>
+
+  <div class="projects-grid">
+
+    <article class="project-card" onclick="scrollToAQ()">
+      <h3>IoT Air Quality Monitoring System</h3>
+      <p><strong>Technologies:</strong> ESP32, ArduinoIDE, Sensor Modules</p>
+      <p>
+        Built a full IoT device measuring PM2.5, temperature, and humidity. 
+        Includes sensor integration, data transmission, and calibration for accuracy.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <h3>Wine Data Scraper — Vino&Vino</h3>
+      <p><strong>Technologies:</strong> Python, BeautifulSoup, Selenium</p>
+      <p>
+        Scraped complete information about wines from Vino&Vino’s website: 
+        name, year, origin, price etc.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <h3>Face Recognition Attendance System</h3>
+      <p><strong>Technologies:</strong> Python, OpenCV, NumPy</p>
+      <p>
+        Built a real-time attendance tool detecting and identifying faces; 
+        outputs timestamps, Excel logs, and dynamic ID matching.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- AIR QUALITY DATA VISUALIZATION SECTION -->
+<section id="air-quality" class="section container wide-section">
+  <h2>Air Quality Monitoring – Data Visualization</h2>
+  <p>This section visualizes real measurements captured using the SPS30 sensor (PM1, PM2.5, PM4, PM10).</p>
+
+  <div class="aq-charts">
+    <div class="chart-wrapper">
+      <h3>PM1.0 (µg/m³)</h3>
+      <canvas id="pm1Chart" width="600" height="400"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>PM2.5 (µg/m³)</h3>
+      <canvas id="pm25Chart" width="600" height="400"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>PM4.0 (µg/m³)</h3>
+      <canvas id="pm4Chart" width="600" height="400"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>PM10 (µg/m³)</h3>
+      <canvas id="pm10Chart" width="600" height="400"></canvas>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="experience" class="section container">
+  <h2>Experience</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <h4>Samsung Innovation Campus — AI/ML/NLP Program</h4>
+      <span class="time">2024–Present</span>
+      <p>Advanced machine learning training with hands-on projects.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>MPP Insights Hackathon</h4>
+      <span class="time">2024</span>
+      <p>Completed ML challenges under pressure, built predictive models.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>Youth Program, ABCFinance.am</h4>
+      <span class="time">2023–2024</span>
+      <p>Designed youth workshops and educational materials.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>Volunteer Coordinator — Starmus VI</h4>
+      <span class="time">2022</span>
+      <p>Supported international science festival operations.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="contact" class="section container">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> gayaneyemishyan4@gmail.com</p>
+  <p><strong>GitHub:</strong> github.com/GayaneYemishyan</p>
+  <p><strong>LinkedIn:</strong> linkedin.com/in/gayane-yemishyan</p>
+</section>
+
+</main>
+
+</body>
+</html>
