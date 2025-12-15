@@ -10,12 +10,13 @@
 #include "VOCGasIndexAlgorithm.h"
 
 // ----------------- Wi-Fi -----------------
-const char* ssid = "tumoTeam";
-const char* password = "hello2team";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 // ----------------- API -------------------
-const char* apiEndpoint = "https://0kvgs3r39c.execute-api.us-east-1.amazonaws.com/default/fromEsptoTimeStream";
-const char* deviceId    = "ESP32_01";
+const char* apiEndpoint = "https://YOUR_API_ENDPOINT";
+const char* deviceId    = "YOUR_DEVICE_ID";
+
 
 // ----------------- BME280 ----------------
 Adafruit_BME280 bme;
