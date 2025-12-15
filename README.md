@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website showcasing projects, skills, and air quality data visualization. Built with vanilla JavaScript and [Chart.js](https://www.chartjs.org/).
 
+🌐 **Live Demo**: [http://16.171.97.241/](http://16.171.97.241/)
+
 ## Features
 
 - **Theme Toggle**: Light/dark mode with localStorage persistence
@@ -10,18 +12,27 @@ A modern, responsive portfolio website showcasing projects, skills, and air qual
 - **Smooth Navigation**: Animated scroll to sections
 - **Contact Form**: Demo form handler with console logging
 - **Data Flexibility**: Fetches `data.json` over HTTP or uses fallback for offline use
+- **Arduino Integration**: ESP32-based air quality sensor data collection
+- **AWS Lambda Backend**: Serverless data processing and storage
 
 ## Project Structure
 
 ```
 .
-├── portfolio.html      # Main HTML page
-├── styles.css          # Styling and responsive layout
-├── script.js           # Application logic (themes, charts, form)
-├── fallback-data.js    # Offline data fallback (69 sensor readings)
-├── data.json           # Full air quality dataset (fetched on HTTP)
-└── README.md           # This file
+├── portfolio/
+│   ├── portfolio.html      # Main HTML page
+│   ├── styles.css          # Styling and responsive layout
+│   ├── script.js           # Application logic (themes, charts, form)
+│   ├── fallback-data.js    # Offline data fallback (69 sensor readings)
+│   └── data.json           # Full air quality dataset (fetched on HTTP)
+├── arduino_sketch/         # ESP32 firmware for sensor data collection
+├── lambda/                 # AWS Lambda functions for data processing
+└── README. md               # This file
 ```
+
+## Live Demo
+
+Visit the live portfolio at:  **[http://16.171.97.241/](http://16.171.97.241/)**
 
 ## Setup & Running
 
@@ -47,10 +58,26 @@ Open `portfolio.html` directly in your browser (`file://...`). Charts will use t
 
 ### Data Loading (`script.js`)
 
-The application prioritizes availability:
+The application prioritizes availability: 
 
 1. **HTTP/Server**: Fetches fresh `data.json` with `cache: 'no-cache'`
 2. **Fallback**: If fetch fails or `file://` protocol is detected, uses pre-bundled data from `fallback-data.js`
+
+### Hardware Setup (Arduino/ESP32)
+
+The `arduino_sketch/` folder contains firmware for ESP32 microcontroller that:
+- Reads air quality sensor data (PM1, PM2.5, PM4, PM10)
+- Connects to Wi-Fi network
+- Sends data to AWS Lambda endpoint
+- Supports local debugging via serial monitor
+
+### Backend (AWS Lambda)
+
+The `lambda/` folder contains serverless functions that:
+- Receive sensor data from ESP32 device
+- Process and validate measurements
+- Store data in database or S3
+- Serve data to the portfolio website
 
 ### Chart System
 
@@ -61,7 +88,7 @@ Four line charts render PM concentration over time:
 - **PM4**: Coarse particles
 - **PM10**: Large particles
 
-Each chart includes:
+Each chart includes: 
 
 - Responsive aspect ratio (1.5:1)
 - Formatted timestamps on X-axis (15-label max, 45° rotation)
@@ -78,7 +105,7 @@ Toggles `.light-mode` class on `<body>`:
 
 ## Data Format
 
-Each reading object contains:
+Each reading object contains: 
 
 ```json
 {
@@ -96,21 +123,25 @@ Each reading object contains:
 
 ## Browser Compatibility
 
-- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
 - ES6+ JavaScript required
 - Chart.js v4 (CDN via jsDelivr)
 
 ## Customization
 
-### Colors
+### Change Theme Colors
 
 Edit CSS variables in `styles.css`:
 
 ```css
 :root {
-  --accent: #38bdf8;   /* Chart colors, links */
-  --muted: #9fbad7;    /* Axes, secondary text */
-  /* ... more variables */
+  --bg: #0a0f1f;
+  --accent:  #7dd3fc;
+  --text: #e6f1ff;
+  --muted:  #9fbad7;
 }
 ```
 
@@ -123,9 +154,13 @@ Modify chart options in `createChart()` function in `script.js`:
 - `pointRadius`: Dot size on chart
 - `borderWidth`: Line thickness
 
-### Data Source
+### Add More Data
 
-Replace `data.json` with your own sensor readings. File must be valid JSON with array of reading objects.
+Replace `data.json` with new readings (requires same format: `pm1_0`, `pm2_5`, `pm4_0`, `pm10`, `timestamp`)
+
+### Modify Content
+
+Update sections in `portfolio.html` for About, Skills, Projects, Experience, Contact
 
 ## Deployment
 
@@ -139,39 +174,17 @@ Replace `data.json` with your own sensor readings. File must be valid JSON with 
 
 Works on any static host (Netlify, Vercel, AWS S3, etc.). JSON fetching requires same-origin or CORS-enabled server.
 
-## License
+### Current Deployment
 
-Portfolio and code by Gayane Yemishyan © 2025.
+This portfolio is currently deployed at: **[http://16.171.97.241/](http://16.171.97.241/)**
 
-## Contact
+## Technologies Used
 
-📧 [gayaneyemishyan4@gmail.com](mailto:gayaneyemishyan4@gmail.com)  
-🔗 [LinkedIn](https://linkedin.com/in/gayane-yemishyan)  
-🐙 [GitHub](https://github.com/GayaneYemishyan)
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Customization
-
-### Change Theme Colors
-Edit CSS variables in `styles.css`:
-```css
-:root {
-  --bg: #0a0f1f;
-  --accent: #7dd3fc;
-  --text: #e6f1ff;
-  /* ... */
-}
-```
-
-### Add More Data
-Replace `data.json` with new readings (requires same format: `pm1_0`, `pm2_5`, `pm4_0`, `pm10`, `timestamp`)
-
-### Modify Content
-Update sections in `index.html` for About, Skills, Projects, Experience, Contact
+- **JavaScript** (45.6%) - Frontend logic and interactivity
+- **Arduino** (21.2%) - ESP32 firmware
+- **HTML** (17.6%) - Page structure
+- **CSS** (10.5%) - Styling and responsive design
+- **Python** (5.1%) - Lambda functions and data processing
 
 ## License
 
