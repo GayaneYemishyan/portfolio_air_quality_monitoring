@@ -120,14 +120,6 @@ Each reading object contains:
 - **Timestamp**: ISO 8601 format (+04:00 timezone)
 - **69 readings** spanning 2025-12-10 to 2025-12-11
 
-## Browser Compatibility
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-- ES6+ JavaScript required
-- Chart.js v4 (CDN via jsDelivr)
 
 ## Customization
 
