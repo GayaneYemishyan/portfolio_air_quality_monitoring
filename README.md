@@ -2,7 +2,6 @@
 
 A modern, responsive portfolio website showcasing projects, skills, and air quality data visualization. Built with vanilla JavaScript and [Chart.js](https://www.chartjs.org/).
 
-🌐 **Live Demo**: [http://16.171.97.241/](http://16.171.97.241/)
 
 ## Features
 
@@ -174,9 +173,6 @@ Update sections in `portfolio.html` for About, Skills, Projects, Experience, Con
 
 Works on any static host (Netlify, Vercel, AWS S3, etc.). JSON fetching requires same-origin or CORS-enabled server.
 
-### Current Deployment
-
-This portfolio is currently deployed at: **[http://16.171.97.241/](http://16.171.97.241/)**
 
 ## Technologies Used
 
@@ -186,9 +182,6 @@ This portfolio is currently deployed at: **[http://16.171.97.241/](http://16.171
 - **CSS** (10.5%) - Styling and responsive design
 - **Python** (5.1%) - Lambda functions and data processing
 
-## License
-
-Personal portfolio — feel free to use as inspiration for your own portfolio.
 
 ## Author
 
